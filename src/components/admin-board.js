@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
+import AddTache from "./form-add-tache";
 import AddUser from "./form-add-user"
 
  export class AdminBoard extends Component {
@@ -38,6 +39,7 @@ import AddUser from "./form-add-user"
         <header className="jumbotron">
           <h3>{this.state.content}</h3>
         </header>
+        <AddTache></AddTache>
         <AddUser></AddUser>
       </div>
     );

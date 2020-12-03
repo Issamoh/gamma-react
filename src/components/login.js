@@ -82,7 +82,7 @@ const required = (value) => {
 
     return (
       <div className="col-md-12">
-        <div className="card card-container">
+        <div className="card card-container-login">
           <img
             src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
             alt="profile-img"
