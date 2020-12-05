@@ -2,6 +2,8 @@ import React, { Component } from "react";
 
 import UserService from "../services/user.service";
 
+import ListUsers from "./list-users";
+
 export class UserBoard extends Component {
   constructor(props) {
     super(props);
@@ -34,9 +36,10 @@ export class UserBoard extends Component {
   render() {
     return (
       <div className="container">
-        <header className="jumbotron">
+        <header className="welcome">
           <h3>{this.state.content}</h3>
         </header>
+        <ListUsers etatUsers="free"></ListUsers>
       </div>
     );
   }

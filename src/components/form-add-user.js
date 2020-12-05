@@ -210,9 +210,10 @@ class AddUser extends Component {
     
 
     return (
-      <div className="col-md-14">
+      
+      <div className="container">
         <div className="card card-container">
-          
+          <h1>AJOUTER UN UTILISATEUR</h1>
           <Form
             onSubmit={this.handleRegister}
             ref={(c) => {

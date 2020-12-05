@@ -12,7 +12,8 @@ import { Router, Switch, Route, Link } from "react-router-dom";
   import Profile from "./components/profile";
   import {UserBoard} from "./components/user-board";
   import {AdminBoard} from "./components/admin-board";
-  
+  import AddUser from "./components/form-add-user";
+  import AddTache from "./components/form-add-tache";
   import { logout } from "./actions/auth";
   import { clearMessage } from "./actions/message";
 
@@ -21,34 +22,7 @@ import { Router, Switch, Route, Link } from "react-router-dom";
   import { history } from './helpers/history';
   
   class App extends Component {
-    /*constructor(props) {
-      super(props);
-      this.logOut = this.logOut.bind(this);
   
-      this.state = {
-        showAdminBoard: false,
-        currentUser: undefined,
-      };
-  
-      history.listen((location) => {
-        props.dispatch(clearMessage()); // clear message when changing location
-      });
-    }
-  
-    componentDidMount() {
-      const user = this.props.user;
-  
-      if (user) {
-        this.setState({
-          currentUser: user,
-          showAdminBoard: user.roles.find(o => o.authority === "ROLE_ADMIN"),
-        });
-      }
-    }
-  
-    logOut() {
-      this.props.dispatch(logout());
-    }*/
   
     render() {
      
@@ -62,7 +36,10 @@ import { Router, Switch, Route, Link } from "react-router-dom";
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/profile" component={Profile} />
                 <Route path="/user" component={UserBoard} />
-                <Route path="/admin" component={AdminBoard} />
+                <Route exact path="/admin/allusers" component={AdminBoard} />
+                <Route exact path= "/admin/adduser" component={AddUser} />
+                <Route exact path= "/addtache" component={AddTache} />
+               
               </Switch>
             </div>
           </div>

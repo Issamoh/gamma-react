@@ -3,6 +3,14 @@ label {
   margin-top: 10px;
 }
 
+.welcome {
+  padding: 1rem 1rem;
+  margin-bottom: 2rem;
+  background-color: #e9ecef;
+  border-radius: 0.3rem;
+  text-align: center;
+}
+
 .card-container-login {
   max-width: 350px !important;
   padding: 40px 40px;
