@@ -7,7 +7,7 @@ import CheckButton from "react-validation/build/button";
 
 import { connect } from "react-redux";
 import { login } from "../actions/auth";
-
+import logo from "../img/logo-gamma.png";
 const required = (value) => {
   if (!value) {
     return (
@@ -82,11 +82,11 @@ const required = (value) => {
 
     return (
       <div className="col-md-12">
-        <div className="card card-container-login">
+        <div className="cardForm card-container-login">
           <img
-            src="//ssl.gstatic.com/accounts/ui/avatar_2x.png"
-            alt="profile-img"
-            className="profile-img-card"
+            src={logo} 
+            alt="logo-img"
+            className="Card.img"
           />
 
           <Form

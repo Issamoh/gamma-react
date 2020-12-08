@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import {Navbar,Nav,NavDropdown} from 'react-bootstrap';
 import { connect } from "react-redux";
-  
-  import { logout } from "../actions/auth";
+import logo from "../img/logo-gamma-light.png";
+import { logout } from "../actions/auth";
 class NavigationBar extends Component{
     constructor(props) {
         super(props);
@@ -36,12 +36,20 @@ class NavigationBar extends Component{
 
         return(
             <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-                <Navbar.Brand href="/home">Gamma</Navbar.Brand>
+                <Navbar.Brand href="/home">
+                  <img
+                  src={logo} 
+                  alt="logo-img"
+                  width="90"
+                  height="50"
+                  className="d-inline-block align-top"
+                />
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav >
-                    <Nav.Link href="/help">Manuel d'utilisation</Nav.Link>
-                    {currentUser && (  <Nav.Link href="/taches">Tâches</Nav.Link>)}
+                    {currentUser && (  <Nav.Link href="/user">Tâche en cours</Nav.Link>)}
+                    {!showAdminBoard && currentUser && (<Nav.Link href="/addtache">Ajouter une Tâche</Nav.Link>)}
                 </Nav>
     {showAdminBoard && (<Nav className="mr-auto">
       <NavDropdown title="Gestion des utilisateurs" id="collasible-nav-dropdown">

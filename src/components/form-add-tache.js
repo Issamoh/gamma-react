@@ -135,7 +135,7 @@ componentDidMount()
 render(){
 
     return(
-    <div className="card card-container">
+    <div className="cardForm card-container">
         <h1>AJOUTER UNE TACHE</h1>
         <Form
         onSubmit={this.handleRegister}
@@ -185,7 +185,7 @@ render(){
 
                { this.state.message && (
                    <div>
-              <div className="form-group">
+              <div className="form-group text-center">
                 <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
                   {this.state.message}
                 </div>

@@ -1,12 +1,10 @@
 import React, { Component } from "react";
 
 import UserService from "../services/user.service";
-import AddTache from "./form-add-tache";
-import AddUser from "./form-add-user"
 import ListUsers from "./list-users";
 import Nav from 'react-bootstrap/Nav'
 
- export class AdminBoard extends Component {
+ class AdminBoardUsers extends Component {
   constructor(props) {
     super(props);
     this.handelSelectNav = this.handelSelectNav.bind(this);
@@ -18,25 +16,6 @@ import Nav from 'react-bootstrap/Nav'
     };
   }
 
-  componentDidMount() {
-    UserService.getAdminBoard().then(
-      response => {
-        this.setState({
-          content: response.data
-        });
-      },
-      error => {
-        this.setState({
-          content:
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString()
-        });
-      }
-    );
-  }
 
   handelSelectNav(navItem){
     this.setState(
@@ -48,11 +27,10 @@ import Nav from 'react-bootstrap/Nav'
 
   }
   render() {
-    console.log(this.state.item)
     return (
       <div className="container">
         <header className="welcome">
-          <h3>{this.state.content}</h3>
+          <h3>Listes des Agents</h3>
         </header>
 
               <Nav justify variant="tabs" defaultActiveKey="free" onSelect={this.handelSelectNav}>
@@ -71,3 +49,4 @@ import Nav from 'react-bootstrap/Nav'
     );
   }
 }
+export default AdminBoardUsers;

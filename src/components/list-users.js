@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import axios from "axios";
 import {Table, Button} from 'react-bootstrap'
 import TachesModal from './taches-modal'
+import Spinner from 'react-bootstrap/Spinner'
 
 const API_URL= 'http://localhost:8080/';
 
@@ -12,6 +13,7 @@ class ListUsers extends Component{
     constructor(props){
         super(props)
         this.handelShowModal = this.handelShowModal.bind(this);
+        this.handleCloseModal = this.handleCloseModal.bind(this);
         this.state = {
             etatUsers: this.props.etatUsers,
             showAssign: false,
@@ -20,14 +22,9 @@ class ListUsers extends Component{
             isLoading: true ,
             showModal: false,
             keyModal: 0, // changed to change key of modal so react re render the modal with show state as true 
-
+            idUserSelected: -1
         }
     }
-    componentDidUpdate(prevProps) {
-        if (prevProps.etatUsers !== this.props.etatUsers) {
-          this.setState({etatUsers: this.props.users})
-        }
-      }
 
     componentDidMount(){
         const user = JSON.parse(localStorage.getItem('user'));
@@ -47,12 +44,27 @@ class ListUsers extends Component{
         this.setState({users: res.data, isLoading: false})})
     };
 
-    handelShowModal()
+    handelShowModal(e)
 {
-    this.setState({showModal: true,  keyModal: this.state.keyModal + 1 % 2}) ;
+    this.setState({showModal: true,  keyModal: this.state.keyModal + 1 % 2, idUserSelected:e.target.value}) ;
+}
+handleCloseModal(done){ // passed as props to the modal so we can know if affectiong user is succeded == done true ?
+    if(done){
+        //delete user from free list
+        let newusers = [...this.state.users].filter(user => user.id !== parseInt(this.state.idUserSelected));
+        console.log(newusers);
+        this.setState({
+            users: newusers
+        })
+    }
 }
     render(){
-      
+       if(this.state.isLoading){
+           return(
+        <Spinner animation="border" role="status">
+        <span className="sr-only">Loading...</span>
+      </Spinner>
+           )}
         return(
             <div>    
                     <Table striped bordered hover>
@@ -66,7 +78,7 @@ class ListUsers extends Component{
                                 {this.state.showAssign && (<th>Tâche</th>)}
                                 </tr>
                             </thead>
-                        { !this.state.isLoading && (  
+                        { !this.state.isLoading &&(  
                         <tbody>{
                             this.state.users.map(user => 
                                 <tr key={user.id}>
@@ -75,12 +87,13 @@ class ListUsers extends Component{
                                 <td>{user.poste}</td>
                                 <td>{user.email}</td>
                                 <td>{user.tel}</td>
-                                {this.state.showAssign && (<td><Button variant="success" onClick={this.handelShowModal}>Affecter-le</Button></td>)}</tr>
+                                {this.state.showAssign && (<td><Button value={user.id} variant="success" onClick={this.handelShowModal}>Affecter-le</Button></td>)}
+                                </tr>
                             )
                             }</tbody>
                             )}
                     </Table>
-                    <TachesModal key={this.state.keyModal} show={this.state.showModal} ></TachesModal>
+                    <TachesModal key={this.state.keyModal} show={this.state.showModal} idUserSelected={this.state.idUserSelected} onHide={this.handleCloseModal} ></TachesModal>
         
            </div>)
             

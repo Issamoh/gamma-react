@@ -178,7 +178,7 @@ class AddUser extends Component {
             tel:  this.state.tel,
             role: this.state.role , // admin or user
         };
-        console.log(data);
+      //  console.log(data);
         axios.post(API_URL+"admin/adduser",data, {headers: headers})
         .then((res) => {
             console.log(res.data.response);
@@ -212,7 +212,7 @@ class AddUser extends Component {
     return (
       
       <div className="container">
-        <div className="card card-container">
+        <div className="cardForm card-container">
           <h1>AJOUTER UN UTILISATEUR</h1>
           <Form
             onSubmit={this.handleRegister}
@@ -309,7 +309,7 @@ class AddUser extends Component {
             )}
 
             {this.state.message && (
-              <div className="form-group">
+               <div className="form-group text-center">
                 <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
                   {this.state.message}
                 </div>
