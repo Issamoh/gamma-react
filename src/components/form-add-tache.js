@@ -42,7 +42,6 @@ this.handleChangeDureeSuffisante = this.handleChangeDureeSuffisante.bind(this);
 this.handleRegister = this.handleRegister.bind(this);
 this.retourner = this.retourner.bind(this);
 this.state = {
-
     title:"",
     description:"",
     dureeSuffisante: '1',

@@ -38,7 +38,7 @@ export class Home extends Component {
         <Row className="description">
         <Col>
                 <div className="left-description">
-                  <p><strong>GAMMA</strong> savoir à tout moment qui est en train de faire quoi?</p>
+                  <p><strong>GAMMA</strong> permet de savoir à tout moment qui est en train de faire quoi?</p>
                   <p>Une affectation équitable des tâches ,un milieu de travail professionel ... </p>
               {false && ( <div> <p>Dévelopée avec passion par </p><a href="https://github.com/issamoh">Issam BenMessaoud</a></div> ) }               </div></Col>
         <Col>
