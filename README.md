@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Gamma-react
+An app for managing and following distibution of tasks between members of a company.</br>
+This app consumes Restful APIs developed with Spring Boot that you can find in this repo <a href="https://github.com/Issamoh/gamma">Gamma</a></br>
+# Screen Shots
+## Login
+  The following screen shot shows the result of the case where a user enters false credentials
+![login](https://github.com/Issamoh/gamma-react/blob/main/screenShots/10.png)
+## Role based application
+The interface changes based on the role of the user
++ Case 1 An admin signs in : Nav Bar will include buttons for managing users and tasks
+![RBA](https://github.com/Issamoh/gamma-react/blob/main/screenShots/11.png)
++ Case 2 A normal user signs in : Nav Bar will NOT include buttons for managing users and tasks
+![RBA](https://github.com/Issamoh/gamma-react/blob/main/screenShots/12.png)
+## Adding users
++ Admins can add new users via a form, they must type required fields as they must respect the correct formats of fields (emails, tel numbers ...etc)
+![addUser](https://github.com/Issamoh/gamma-react/blob/main/screenShots/13.png)
++ Admin can not add a new user with an existing username
+![addUser](https://github.com/Issamoh/gamma-react/blob/main/screenShots/13.5.png)
+## Adding tasks
+Users can add tasks by introducing A a title, a description and a duration for the new task
+![addTask](https://github.com/Issamoh/gamma-react/blob/main/screenShots/15.png)
+## Assigning tasks to users
++ An admin can see lists of users by their state (free or occupied)
+![affectTask](https://github.com/Issamoh/gamma-react/blob/main/screenShots/16.png)
++ When the admin clicks on the green button, list of new tasks will show up so he can choose a one to be affected to the user
+![affectTask](https://github.com/Issamoh/gamma-react/blob/main/screenShots/17.png)
+## Following the state of tasks
++ An admin can see lists of tasks by their state (New, in progress, finished, expired or abandoned)
+![Tasks](https://github.com/Issamoh/gamma-react/blob/main/screenShots/19.png)
+## Finishing a task
++ When a user sings in, he can see the task assigned to him so he can reports that he finished it.
+![Tasks](https://github.com/Issamoh/gamma-react/blob/main/screenShots/21.png)
+## Security
+The Application uses JWT standard to secure communication with backend.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
-
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
